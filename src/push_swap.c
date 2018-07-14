@@ -6,7 +6,7 @@
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 14:41:14 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/14 15:03:10 by astrelov         ###   ########.fr       */
+/*   Updated: 2018/07/14 15:39:42 by astrelov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,26 +197,6 @@ void	move_nbrs_to_a(t_stack *a, t_stack *b, t_nbrs_to_move *nbrs)
 	}
 }
 
-void	move_nbrs_to_b(t_stack *a, t_stack *b, t_nbrs_to_move *nbrs)
-{
-	t_min_nbr		*closest;
-
-	while (a->nodes_amount > 3)
-	{
-		nbrs->max_amount = a->nodes_amount / 4;
-		nbrs->curr_amount = 0;
-		while (a->nodes_amount - nbrs->curr_amount > 3 && nbrs->curr_amount < nbrs->max_amount)
-			find_next_min(a, nbrs);
-		while (nbrs->curr_amount)
-		{
-			closest = find_closest(a, nbrs);
-			prepare_a_to_pb(a, nbrs, closest);
-			pb(a, b);
-			free_node(a, nbrs, closest);
-		}
-	}
-}
-
 void	fix_a_stack_head(t_stack *stack)
 {
 	while (HEAD->nbr > HEAD->prev->nbr)
@@ -251,7 +231,7 @@ void	push_swap(char **av)
 
 int		main(int ac, char **av)
 {
-	g_total_nbrs_amnt = ac - 1;
+	g_total_nbrs_amnt = (size_t)ac - 1;
 	if (g_total_nbrs_amnt < 2)
 		return (0);
 	if (!input_is_valid(av))

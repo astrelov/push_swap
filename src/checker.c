@@ -6,7 +6,7 @@
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 14:40:33 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/14 14:44:01 by astrelov         ###   ########.fr       */
+/*   Updated: 2018/07/14 15:53:29 by astrelov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		main(int ac, char **av)
 	t_stack	b;
 
 	g_checker = 1;
-	g_total_nbrs_amnt = ac - 1;
+	g_total_nbrs_amnt = (size_t)ac - 1;
 	if (!input_is_valid(av))
 		error();
 	ft_bzero(&a, sizeof(t_stack));

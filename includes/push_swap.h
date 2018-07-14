@@ -59,6 +59,8 @@ typedef struct			s_nbrs_to_move
 ** Helpers
 */
 
+void					move_nbrs_to_b(t_stack *a, t_stack *b, t_nbrs_to_move *nbrs);
+
 void					error(void);
 int						input_is_valid(char **av);
 int						*get_nbrs(char **av);
@@ -70,8 +72,6 @@ void					move_nbrs_to_b(t_stack *a, t_stack *b,
 t_min_nbr				*find_closest(t_stack *a, t_nbrs_to_move *nbrs);
 void					free_node(t_stack *stack, t_nbrs_to_move *nbrs,
 								t_min_nbr *to_free);
-void					prepare_a_to_pb(t_stack *stack, t_nbrs_to_move *nbrs,
-								t_min_nbr *to_move);
 
 /*
 ** Functions to manipulate list

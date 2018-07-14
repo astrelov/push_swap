@@ -1,47 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers1.c                                         :+:      :+:    :+:   */
+/*   finders.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/14 15:14:17 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/14 15:26:14 by astrelov         ###   ########.fr       */
+/*   Created: 2018/07/14 15:48:05 by astrelov          #+#    #+#             */
+/*   Updated: 2018/07/14 15:48:05 by astrelov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft/libft.h"
 #include "../../includes/push_swap.h"
 
-void		print_stack(t_stack *stack)
+t_min_nbr	*find_closest(t_stack *a, t_nbrs_to_move *nbrs)
 {
-	t_node	*node;
+	int			moves;
+	t_min_nbr	*node;
+	t_min_nbr	*closest;
 
-	puts("**************************************************");
-	printf("DEBUG: PRINT_LIST(): stack_nodes = %d\n", stack->nodes_amount);
-	if (!stack->nodes_amount)
+	closest = nbrs->nbrs_positions->next;
+	moves = INT_MAX;
+	node = nbrs->nbrs_positions;
+	while (node)
 	{
-		puts("**************************************************");
-		return;
-	}
-	node = HEAD;
-	do {
-		printf("node: nbr = %d\n", node->nbr);
+		if (node->index < moves)
+		{
+			moves = node->index;
+			closest = node;
+		}
+		if (a->nodes_amount - node->index < moves)
+		{
+			moves = a->nodes_amount - node->index;
+			closest = node;
+		}
 		node = node->next;
-	} while (node != HEAD);
-	puts("**************************************************");
-}
-
-int			*get_nbrs(char **av)
-{
-	int		*nbrs;
-	int		i;
-
-	nbrs = (int *)ft_memalloc(g_total_nbrs_amnt * sizeof(int));
-	i = 0;
-	while (i < g_total_nbrs_amnt)
-		nbrs[i++] = ft_atoi(*(++av));
-	return (nbrs);
+	}
+	return (closest);
 }
 
 void		find_min(t_stack *stack, t_min_nbr *min)

@@ -88,7 +88,7 @@ set(SHARE
         src/operations/p.c
         src/operations/r.c
         src/operations/rr.c
-        src/helpers/helpers1.c)
+        src/helpers/finders.c src/helpers/shared_ps_checker.c)
 
 set(CHECKER
         src/checker.c
@@ -97,7 +97,7 @@ set(CHECKER
         )
 
 set(PUSH_SWAP
-        src/push_swap.c)
+        src/push_swap.c src/helpers/moving_nbrs_to_b.c)
 
 add_executable(checker
         ${CHECKER}

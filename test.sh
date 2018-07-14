@@ -1,5 +1,9 @@
 #!/bin/bash
 
+NC='\033[0m'
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+
 echo "PID of test = $$"
 echo $$ > test_pid_file
 
@@ -24,7 +28,15 @@ do
         let "count += 1"
     done
 #    echo $NUMBERS
-    ./cmake-build-debug/push_swap $NUMBERS | wc -w # > ./output.txt && ./cmake-build-debug/checker $NUMBERS           # | wc -w
+    ./cmake-build-debug/push_swap $NUMBERS > ./output.txt &&  ./cmake-build-debug/checker $NUMBERS
+
+     WORDS=$(cat output.txt | wc -w)
+
+    if [ "$WORDS" -gt 5500 ]; then
+        echo -e "${RED}${WORDS}${NC}"
+    else
+        echo -e "${GREEN}${WORDS}${NC}"
+    fi
 done
 
 NUMBERS=""
@@ -48,7 +60,15 @@ do
         let "count += 1"
     done
 #    echo $NUMBERS
-    ./cmake-build-debug/push_swap $NUMBERS | wc -w  # > ./output.txt &&  ./cmake-build-debug/checker $NUMBERS       # | wc -w
+    ./cmake-build-debug/push_swap $NUMBERS > ./output.txt &&  ./cmake-build-debug/checker $NUMBERS
+
+     WORDS=$(cat output.txt | wc -w)
+
+    if [ "$WORDS" -gt 700 ]; then
+        echo -e "${RED}${WORDS}${NC}"
+    else
+        echo -e "${GREEN}${WORDS}${NC}"
+    fi
 done
 
 
