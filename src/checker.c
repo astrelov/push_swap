@@ -6,13 +6,13 @@
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 14:40:33 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/14 15:53:29 by astrelov         ###   ########.fr       */
+/*   Updated: 2018/07/14 15:56:07 by astrelov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	check(t_stack *a, t_stack *b)
+void	do_instuctions(t_stack *a, t_stack *b)
 {
 	char	*op;
 	int		fd;
@@ -35,7 +35,7 @@ void	check(t_stack *a, t_stack *b)
 		else if (ft_strequ(op, "rrb"))
 			rrb(b);
 		else
-			;//error();
+			error();
 	}
 }
 
@@ -53,7 +53,7 @@ int		main(int ac, char **av)
 	ft_bzero(&b, sizeof(t_stack));
 	nbrs_arr = get_nbrs(av);
 	lst_create(&a, nbrs_arr);
-	check(&a, &b);
+	do_instuctions(&a, &b);
 	ft_memdel((void **)&nbrs_arr);
 	if (lst_is_sorted(&a))
 		write(1, "OK\n", 3);

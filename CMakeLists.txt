@@ -84,7 +84,7 @@ set(SHARE
         src/list/lst_shift.c
         src/operations/s.c
         src/list/lst_splice.c
-        src/helpers/helpers2.c
+        src/helpers/mr_cleaner.c
         src/operations/p.c
         src/operations/r.c
         src/operations/rr.c
@@ -97,7 +97,7 @@ set(CHECKER
         )
 
 set(PUSH_SWAP
-        src/push_swap.c src/helpers/moving_nbrs_to_b.c)
+        src/push_swap.c src/helpers/moving_nbrs_to_b.c src/helpers/moving_nbrs_to_a.c src/helpers/finders_for_moving_to_a.c src/helpers/moving_nbrs_to_a_2.c)
 
 add_executable(checker
         ${CHECKER}

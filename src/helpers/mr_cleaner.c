@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers2.c                                         :+:      :+:    :+:   */
+/*   mr_cleaner.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/14 14:41:02 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/14 15:44:48 by astrelov         ###   ########.fr       */
+/*   Created: 2018/07/14 17:30:29 by astrelov          #+#    #+#             */
+/*   Updated: 2018/07/14 17:30:29 by astrelov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void		free_node(t_stack *stack, t_nbrs_to_move *nbrs, t_min_nbr *to_free)
+void		remove_node_from_nbrs_to_move_list(t_stack *stack,
+									t_nbrs_to_move *nbrs, t_min_nbr *to_free)
 {
 	t_min_nbr	*node;
 

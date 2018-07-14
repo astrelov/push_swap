@@ -6,7 +6,7 @@
 /*   By: astrielov <astrielov@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 20:28:12 by astrielov         #+#    #+#             */
-/*   Updated: 2018/07/14 15:32:18 by astrelov         ###   ########.fr       */
+/*   Updated: 2018/07/14 17:26:55 by astrelov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "../libft/libft.h"
 
 # define HEAD 			(stack->head)
+# define NIND			(node->index)
 
 # define UNSORTED 		0
 # define SORTED 		1
@@ -59,19 +60,26 @@ typedef struct			s_nbrs_to_move
 ** Helpers
 */
 
+void					find_next_max(t_stack *stack, t_nbrs_to_move *nbrs);
+void					move_nbrs_to_a(t_stack *a, t_stack *b, t_nbrs_to_move *nbrs);
+
+t_min_nbr				*find_nbr_more_than_moving(t_stack *stack,
+													t_min_nbr *to_move, t_min_nbr *max);
+void					fix_a_stack_head(t_stack *stack);
+
 void					move_nbrs_to_b(t_stack *a, t_stack *b, t_nbrs_to_move *nbrs);
 
 void					error(void);
 int						input_is_valid(char **av);
 int						*get_nbrs(char **av);
-void					find_min(t_stack *stack, t_min_nbr *min);
+t_min_nbr				*find_min(t_stack *stack);
 t_min_nbr				*find_max(t_stack *stack);
 void					find_next_min(t_stack *stack, t_nbrs_to_move *nbrs);
 void					move_nbrs_to_b(t_stack *a, t_stack *b,
 								t_nbrs_to_move *nbrs);
 t_min_nbr				*find_closest(t_stack *a, t_nbrs_to_move *nbrs);
-void					free_node(t_stack *stack, t_nbrs_to_move *nbrs,
-								t_min_nbr *to_free);
+void					remove_node_from_nbrs_to_move_list(t_stack *stack, t_nbrs_to_move *nbrs,
+														   t_min_nbr *to_free);
 
 /*
 ** Functions to manipulate list

@@ -14,6 +14,8 @@ NBRSAMOUNT=500
 count2=1
 TESTSAMOUNT=10
 
+SUCCESSFUL=0
+
 printf "\n\ttesting $NBRSAMOUNT numbers $TESTSAMOUNT times\n\n"
 
 while [ "$count2" -le $TESTSAMOUNT ]
@@ -36,8 +38,11 @@ do
         echo -e "${RED}${WORDS}${NC}"
     else
         echo -e "${GREEN}${WORDS}${NC}"
+        let "SUCCESSFUL += 1"
     fi
 done
+
+echo "SUCCESSFUL ATTEMPTS: $SUCCESSFUL"
 
 NUMBERS=""
 count=1
@@ -45,6 +50,8 @@ NBRSAMOUNT=100
 
 count2=1
 TESTSAMOUNT=10
+
+SUCCESSFUL=0
 
 printf "\n\ttesting $NBRSAMOUNT numbers $TESTSAMOUNT times\n\n"
 
@@ -68,10 +75,11 @@ do
         echo -e "${RED}${WORDS}${NC}"
     else
         echo -e "${GREEN}${WORDS}${NC}"
+        let "SUCCESSFUL += 1"
     fi
 done
 
-
+echo "SUCCESSFUL ATTEMPTS: $SUCCESSFUL"
 
 
 # endless loop for leaks testing
