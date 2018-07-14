@@ -62,7 +62,8 @@ void	push_swap(char **av)
 	nbrs_arr = get_nbrs(av);
 	lst_create(&a, nbrs_arr);
 	ft_memdel((void **)&nbrs_arr);
-	sort(&a, &b);
+	if (!lst_is_sorted(&a))
+		sort(&a, &b);
 }
 
 int		main(int ac, char **av)
