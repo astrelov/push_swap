@@ -19,7 +19,7 @@ void		pa(t_stack *a, t_stack *b)
 	if (!g_checker)
 		write(1, "pa\n", 3);
 	if (!a || !b || !b->nodes_amount)
-		return;
+		return ;
 	node = lst_shift(b);
 	lst_push_head(a, node);
 }
@@ -31,7 +31,7 @@ void		pb(t_stack *a, t_stack *b)
 	if (!g_checker)
 		write(1, "pb\n", 3);
 	if (!a || !b || !a->nodes_amount)
-		return;
+		return ;
 	node = lst_shift(a);
 	lst_push_head(b, node);
 }

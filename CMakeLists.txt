@@ -82,14 +82,13 @@ set(SHARE
         src/list/lst_push_head.c
         src/list/lst_is_sorted.c
         src/list/lst_shift.c
-        src/helpers/helpers1.c
         src/operations/s.c
         src/list/lst_splice.c
         src/helpers/helpers2.c
         src/operations/p.c
         src/operations/r.c
         src/operations/rr.c
-        )
+        src/helpers/helpers1.c)
 
 set(CHECKER
         src/checker.c

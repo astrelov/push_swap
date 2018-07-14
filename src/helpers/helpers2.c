@@ -6,26 +6,18 @@
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 14:41:02 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/14 14:45:00 by astrelov         ###   ########.fr       */
+/*   Updated: 2018/07/14 15:11:53 by astrelov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void		print_nbrs(int *nbrs)
+int			input_is_valid(char **av)
 {
-	printf("\n\n**************************************************\n\n");
-	for (int i = 0; i < g_total_nbrs_amnt; i++)
-		printf("%d\n", nbrs[i]);
-	printf("\n\n**************************************************\n\n");
-}
-
-int 		input_is_valid(char **av)
-{
-	int 	*nbrs;
-	char 	*nbr;
-	int 	i;
-	int 	equal;
+	int		*nbrs;
+	char	*nbr;
+	int		i;
+	int		equal;
 
 	nbrs = get_nbrs(av);
 	i = -1;
@@ -49,7 +41,7 @@ int 		input_is_valid(char **av)
 	return (VALID);
 }
 
-void		error()
+void		error(void)
 {
 	write(1, "Error\n", 6);
 	exit(0);
@@ -57,7 +49,7 @@ void		error()
 
 t_min_nbr	*find_closest(t_stack *a, t_nbrs_to_move *nbrs)
 {
-	int 		moves;
+	int			moves;
 	t_min_nbr	*node;
 	t_min_nbr	*closest;
 
@@ -81,7 +73,8 @@ t_min_nbr	*find_closest(t_stack *a, t_nbrs_to_move *nbrs)
 	return (closest);
 }
 
-void		prepare_a_to_pb(t_stack *stack, t_nbrs_to_move *nbrs, t_min_nbr *to_move)
+void		prepare_a_to_pb(t_stack *stack, t_nbrs_to_move *nbrs,
+							t_min_nbr *to_move)
 {
 	t_min_nbr	*node;
 
@@ -125,7 +118,7 @@ void		free_node(t_stack *stack, t_nbrs_to_move *nbrs, t_min_nbr *to_free)
 			if (node->next == to_free)
 			{
 				node->next = node->next->next;
-				break;
+				break ;
 			}
 			node = node->next;
 		}

@@ -6,7 +6,7 @@
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 14:41:14 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/14 14:44:33 by astrelov         ###   ########.fr       */
+/*   Updated: 2018/07/14 15:03:10 by astrelov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,17 @@ void	find_next_max(t_stack *stack, t_nbrs_to_move *nbrs)
 	t_min_nbr	*next_max;
 	t_min_nbr	*prev_max;
 	t_node		*node;
-	int 		index;
+	int			index;
 
 	nbrs->curr_amount++;
 	if (!(nbrs->curr_amount - 1))
 	{
 		nbrs->nbrs_positions = find_max(stack);
-		return;
+		return ;
 	}
 	prev_max = nbrs->nbrs_positions;
 	while (prev_max->next)
 		prev_max = prev_max->next;
-
 	next_max = (t_min_nbr *)ft_memalloc(sizeof(t_min_nbr));
 	if (HEAD->nbr < prev_max->node->nbr)
 	{
@@ -81,8 +80,6 @@ void	find_next_max(t_stack *stack, t_nbrs_to_move *nbrs)
 	}
 	else
 		find_min(stack, next_max);
-
-
 	node = HEAD->next;
 	index = 1;
 	while (node != HEAD)
@@ -95,15 +92,15 @@ void	find_next_max(t_stack *stack, t_nbrs_to_move *nbrs)
 		index++;
 		node = node->next;
 	}
-
 	prev_max->next = next_max;
 }
 
-t_min_nbr	*find_nbr_more_than_moving(t_stack *stack, t_min_nbr *to_move, t_min_nbr *max)
+t_min_nbr	*find_nbr_more_than_moving(t_stack *stack, t_min_nbr *to_move,
+										t_min_nbr *max)
 {
 	t_min_nbr	*more;
 	t_node		*tmp;
-	int 		index;
+	int			index;
 
 	more = (t_min_nbr *)ft_memalloc(sizeof(t_min_nbr));
 	if (HEAD->nbr > to_move->node->nbr)
@@ -167,7 +164,7 @@ static void		prepare_a_to_pa(t_stack *stack, t_min_nbr *to_move)
 	t_min_nbr	*more_than_to_move;
 
 	if (!HEAD)
-		return;
+		return ;
 	max = find_max(stack);
 	more_than_to_move = find_nbr_more_than_moving(stack, to_move, max);
 	if (more_than_to_move->index < stack->nodes_amount / 2 + 1)
@@ -180,7 +177,7 @@ static void		prepare_a_to_pa(t_stack *stack, t_min_nbr *to_move)
 	ft_memdel((void **)&more_than_to_move);
 }
 
-void 	move_nbrs_to_a(t_stack *a, t_stack *b, t_nbrs_to_move *nbrs)
+void	move_nbrs_to_a(t_stack *a, t_stack *b, t_nbrs_to_move *nbrs)
 {
 	t_min_nbr	*closest;
 
@@ -240,7 +237,7 @@ void	sort(t_stack *a, t_stack *b)
 
 void	push_swap(char **av)
 {
-	int 	*nbrs_arr;
+	int		*nbrs_arr;
 	t_stack	a;
 	t_stack	b;
 

@@ -15,14 +15,14 @@
 void	lst_push(t_stack *stack, t_node *node)
 {
 	if (!stack || !node)
-		return;
+		return ;
 	stack->nodes_amount += 1;
 	if (!HEAD)
 	{
 		HEAD = node;
 		node->next = node;
 		node->prev = node;
-		return;
+		return ;
 	}
 	node->next = HEAD;
 	node->prev = HEAD->prev;

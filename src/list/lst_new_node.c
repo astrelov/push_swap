@@ -18,7 +18,7 @@ t_node	*lst_new_node(int nbr)
 	t_node	*el;
 
 	if (!(el = (t_node *)ft_memalloc(sizeof(t_node))))
-		return NULL;
+		return (NULL);
 	el->nbr = nbr;
 	return (el);
 }

@@ -19,7 +19,7 @@ void	sa(t_stack *stack)
 	if (!g_checker)
 		write(1, "sa\n", 3);
 	if (!stack || stack->nodes_amount < 2)
-		return;
+		return ;
 	node = lst_shift(stack);
 	HEAD = HEAD->next;
 	lst_push_head(stack, node);

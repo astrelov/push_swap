@@ -14,7 +14,7 @@
 
 void	lst_create(t_stack *stack, const int *nbrs)
 {
-	int 	i;
+	int		i;
 	t_node	*new_node;
 
 	i = 0;

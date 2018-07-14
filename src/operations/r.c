@@ -17,7 +17,7 @@ void	ra(t_stack *stack)
 	if (!g_checker)
 		write(1, "ra\n", 3);
 	if (!stack->nodes_amount)
-		return;
+		return ;
 	HEAD = HEAD->next;
 }
 
@@ -26,6 +26,6 @@ void	rb(t_stack *stack)
 	if (!g_checker)
 		write(1, "rb\n", 3);
 	if (!stack->nodes_amount)
-		return;
+		return ;
 	HEAD = HEAD->next;
 }

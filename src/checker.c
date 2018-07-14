@@ -15,7 +15,7 @@
 void	check(t_stack *a, t_stack *b)
 {
 	char	*op;
-	int 	fd;
+	int		fd;
 
 	fd = open("./output.txt", O_RDONLY);
 	while (ft_gnl(fd, &op))
@@ -41,7 +41,7 @@ void	check(t_stack *a, t_stack *b)
 
 int		main(int ac, char **av)
 {
-	int 	*nbrs_arr;
+	int		*nbrs_arr;
 	t_stack	a;
 	t_stack	b;
 
