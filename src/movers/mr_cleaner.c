@@ -6,13 +6,13 @@
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 17:30:29 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/14 17:30:29 by astrelov         ###   ########.fr       */
+/*   Updated: 2018/07/16 12:50:24 by astrelov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void		remove_node_from_nbrs_to_move_list(t_stack *stack,
+void	remove_node_from_nbrs_to_move_list(t_stack *stack,
 									t_nbrs_to_move *nbrs, t_min_nbr *to_free)
 {
 	t_min_nbr	*node;
@@ -39,5 +39,19 @@ void		remove_node_from_nbrs_to_move_list(t_stack *stack,
 	{
 		node->index = node->index ? node->index - 1 : stack->nodes_amount - 1;
 		node = node->next;
+	}
+}
+
+void	free_stack_nodes(t_stack *stack)
+{
+	t_node	*next;
+
+	if (stack->head)
+		stack->head->prev->next = NULL;
+	while (stack->head)
+	{
+		next = stack->head->next;
+		ft_memdel((void **)&(stack->head));
+		stack->head = next;
 	}
 }

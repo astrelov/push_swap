@@ -6,7 +6,7 @@
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 15:39:46 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/14 17:26:55 by astrelov         ###   ########.fr       */
+/*   Updated: 2018/07/14 20:36:24 by null             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void		rotate_a_forward(t_stack *stack, t_nbrs_to_move *nbrs,
 
 	while (to_move->index--)
 	{
-		ra(stack);
+		op_handler(stack, NULL, "ra");
 		node = nbrs->nbrs_positions;
 		while (node)
 		{
@@ -37,7 +37,7 @@ static void		rotate_a_backward(t_stack *stack, t_nbrs_to_move *nbrs,
 
 	while (stack->nodes_amount - to_move->index++)
 	{
-		rra(stack);
+		op_handler(stack, NULL, "rra");
 		node = nbrs->nbrs_positions;
 		while (node)
 		{
@@ -72,7 +72,7 @@ void			move_nbrs_to_b(t_stack *a, t_stack *b, t_nbrs_to_move *nbrs)
 		{
 			closest = find_closest(a, nbrs);
 			prepare_a_to_pb(a, nbrs, closest);
-			pb(a, b);
+			op_handler(a, b, "pb");
 			remove_node_from_nbrs_to_move_list(a, nbrs, closest);
 		}
 	}

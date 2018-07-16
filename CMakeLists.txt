@@ -82,22 +82,29 @@ set(SHARE
         src/list/lst_push_head.c
         src/list/lst_is_sorted.c
         src/list/lst_shift.c
-        src/operations/s.c
         src/list/lst_splice.c
-        src/helpers/mr_cleaner.c
+        src/operations/s.c
         src/operations/p.c
         src/operations/r.c
         src/operations/rr.c
-        src/helpers/finders.c src/helpers/shared_ps_checker.c)
+        src/movers/shared_ps_checker.c
+        )
 
 set(CHECKER
         src/checker.c
-        src/operations/p.c
-        src/operations/r.c
         )
 
 set(PUSH_SWAP
-        src/push_swap.c src/helpers/moving_nbrs_to_b.c src/helpers/moving_nbrs_to_a.c src/helpers/finders_for_moving_to_a.c src/helpers/moving_nbrs_to_a_2.c)
+        src/push_swap.c
+        src/movers/moving_nbrs_to_b.c
+        src/movers/moving_nbrs_to_a.c
+        src/movers/finders_for_moving_to_a.c
+        src/movers/moving_nbrs_to_a_2.c
+        src/operations/p_s_op_handler.c
+        src/movers/three_nbrs_in_stack_a.c
+        src/movers/finders.c
+        src/movers/mr_cleaner.c
+        )
 
 add_executable(checker
         ${CHECKER}
