@@ -16,6 +16,8 @@ void		pa(t_stack *a, t_stack *b)
 {
 	t_node	*node;
 
+	if (!b->nodes_amount)
+		return ;
 	node = lst_shift(b);
 	lst_push_head(a, node);
 }
@@ -24,6 +26,8 @@ void		pb(t_stack *a, t_stack *b)
 {
 	t_node	*node;
 
+	if (!a->nodes_amount)
+		return ;
 	node = lst_shift(a);
 	lst_push_head(b, node);
 }

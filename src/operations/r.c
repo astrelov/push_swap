@@ -14,11 +14,15 @@
 
 void	ra(t_stack *stack)
 {
+	if (!stack->nodes_amount)
+		return ;
 	HEAD = HEAD->next;
 }
 
 void	rb(t_stack *stack)
 {
+	if (!stack->nodes_amount)
+		return ;
 	HEAD = HEAD->next;
 }
 

@@ -6,7 +6,7 @@
 /*   By: astrielov <astrielov@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 20:28:12 by astrielov         #+#    #+#             */
-/*   Updated: 2018/07/16 12:08:24 by astrelov         ###   ########.fr       */
+/*   Updated: 2018/07/17 10:45:40 by null             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct			s_nbrs_to_move
 int						input_is_valid(char **av, int nbrs_amount);
 int						*get_nbrs(char **av, int amount);
 void					error(void);
+int 					count_nbrs(char **nbrs);
 
 /*
 ** Proceeding
@@ -116,6 +117,7 @@ int						lst_is_sorted(t_stack *stack, int all_nbrs_amount);
 
 void					op_handler(t_stack *a, t_stack *b, char *op);
 void					sa(t_stack *stack);
+void					sb(t_stack *stack);
 void					pa(t_stack *a, t_stack *b);
 void					pb(t_stack *a, t_stack *b);
 void					ra(t_stack *stack);

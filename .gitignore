@@ -38,3 +38,8 @@ cmake-build-debug/
 test_pid_file
 
 output.txt
+
+\.DS_Store
+
+checker
+push_swap

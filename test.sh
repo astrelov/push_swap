@@ -5,8 +5,8 @@ make re
 checker="./checker"
 push_swap="./push_swap"
 
-TESTSAMOUNT_500=0
-TESTSAMOUNT_100=10
+TESTSAMOUNT_500=10
+TESTSAMOUNT_100=100
 TESTSAMOUNT_5=0
 TESTSAMOUNT_3=0
 
@@ -14,9 +14,6 @@ NC='\033[0m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 ORANGE='\033[0;33m'
-
-echo "PID of test = $$"
-echo $$ > test_pid_file
 
 if [[ "$TESTSAMOUNT_500" > 0 ]]; then
 

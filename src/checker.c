@@ -6,7 +6,7 @@
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 14:40:33 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/16 13:01:54 by astrelov         ###   ########.fr       */
+/*   Updated: 2018/07/17 10:45:40 by null             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	do_instruction(t_stack *a, t_stack *b, char *op)
 {
 	if (ft_strequ(op, "sa"))
 		sa(a);
+	else if (ft_strequ(op, "sb"))
+		sb(b);
 	else if (ft_strequ(op, "pa"))
 		pa(a, b);
 	else if (ft_strequ(op, "pb"))
@@ -49,23 +51,41 @@ void	read_instructions(t_stack *a, t_stack *b)
 	free(op);
 }
 
-int		main(int ac, char **av)
+int		check(char **nbrs, int nbrs_amount)
 {
 	int		*nbrs_arr;
 	t_stack	a;
 	t_stack	b;
 
-	if (!input_is_valid(av, ac - 1))
-		error();
 	ft_bzero(&a, sizeof(t_stack));
 	ft_bzero(&b, sizeof(t_stack));
-	nbrs_arr = get_nbrs(av, ac - 1);
-	lst_create(&a, nbrs_arr, ac - 1);
+	nbrs_arr = get_nbrs(nbrs, nbrs_amount);
+	lst_create(&a, nbrs_arr, nbrs_amount);
 	read_instructions(&a, &b);
 	ft_memdel((void **)&nbrs_arr);
-	if (lst_is_sorted(&a, ac - 1))
-		write(1, "OK\n", 3);
+	return (lst_is_sorted(&a, nbrs_amount));
+}
+
+int		main(int ac, char **av)
+{
+	char	**nbrs;
+	int 	nbrs_amount;
+
+	if (ac == 1)
+		return (0);
+	nbrs = av + 1;
+	nbrs_amount = ac - 1;
+	if (ac == 2)
+	{
+		if (!(nbrs = ft_strsplit(*(av + 1), ' ')))
+			error();
+		nbrs_amount = count_nbrs(nbrs);
+	}
+	if (!input_is_valid(nbrs, nbrs_amount))
+		error();
+	if (check(nbrs, nbrs_amount))
+		ft_putendl("OK");
 	else
-		write(1, "KO\n", 3);
+		ft_putendl("KO");
 	return (0);
 }

@@ -16,7 +16,7 @@ int		lst_is_sorted(t_stack *stack, int all_nbrs_amount)
 {
 	t_node	*node;
 
-	if (!stack || stack->nodes_amount != all_nbrs_amount)
+	if (stack->nodes_amount != all_nbrs_amount)
 		return (UNSORTED);
 	node = HEAD;
 	while (node->next != HEAD)

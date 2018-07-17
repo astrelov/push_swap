@@ -6,7 +6,7 @@
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 14:41:14 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/16 12:40:23 by astrelov         ###   ########.fr       */
+/*   Updated: 2018/07/17 10:42:40 by null             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,21 @@ void	push_swap(char **av, int nbrs_amount)
 
 int		main(int ac, char **av)
 {
-	if (ac - 1 < 2)
+	char	**nbrs;
+	int 	nbrs_amount;
+
+	if (ac == 1)
 		return (0);
-	if (!input_is_valid(av, ac - 1))
+	nbrs = av + 1;
+	nbrs_amount = ac - 1;
+	if (ac == 2)
+	{
+		if (!(nbrs = ft_strsplit(*(av + 1), ' ')))
+			error();
+		nbrs_amount = count_nbrs(nbrs);
+	}
+	if (!input_is_valid(nbrs, nbrs_amount))
 		error();
-	push_swap(av, ac - 1);
+	push_swap(nbrs, nbrs_amount);
 	return (0);
 }
