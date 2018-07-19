@@ -6,13 +6,14 @@
 /*   By: astrelov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:18:27 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/14 19:56:29 by null             ###   ########.fr       */
+/*   Updated: 2018/07/19 12:48:18 by null             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "./ft_printf/includes/ft_printf.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
@@ -65,6 +66,7 @@ void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
+void				ft_putnstr(char const *s, size_t n);
 void				ft_putstr(char const *s);
 void				ft_putstr_fd(char const *s, int fd);
 char				*ft_strcat(char *s1, const char *s2);
@@ -94,6 +96,8 @@ char				*ft_strrchr(const char *s, int c);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
+void				ft_strtolow(char *str);
+void				ft_strtoupp(char *str);
 char				*ft_strtrim(char const *s);
 int					ft_tolower(int c);
 int					ft_toupper(int c);

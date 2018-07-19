@@ -46,12 +46,12 @@ void	free_stack_nodes(t_stack *stack)
 {
 	t_node	*next;
 
-	if (stack->head)
-		stack->head->prev->next = NULL;
-	while (stack->head)
+	if (HEAD)
+		HEAD->prev->next = NULL;
+	while (HEAD)
 	{
-		next = stack->head->next;
-		ft_memdel((void **)&(stack->head));
-		stack->head = next;
+		next = HEAD->next;
+		ft_memdel((void **)&(HEAD));
+		HEAD = next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: astrelov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 12:36:43 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/14 19:56:29 by null             ###   ########.fr       */
+/*   Updated: 2018/07/19 12:48:19 by null             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(char const *s)
 {
-	int		len;
+	size_t	len;
 
 	len = 0;
-	while (s[len])
+	while (s && s[len])
 		len++;
 	return (len);
 }

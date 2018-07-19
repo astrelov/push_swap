@@ -6,7 +6,7 @@
 #    By: astrielov <astrielov@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/14 20:54:44 by astrielov         #+#    #+#              #
-#    Updated: 2018/07/15 14:19:21 by null             ###   ########.fr        #
+#    Updated: 2018/07/19 12:57:02 by null             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ PS_SRC =			src/push_swap.c \
 					src/movers/moving_nbrs_to_a_2.c \
 					src/movers/three_nbrs_in_stack_a.c \
 					src/movers/finders.c \
-					src/movers/mr_cleaner.c \
 					src/operations/p_s_op_handler.c
 
 SHARED_SRC =		src/list/lst_new_node.c \
@@ -43,6 +42,7 @@ SHARED_SRC =		src/list/lst_new_node.c \
 					src/operations/p.c \
 					src/operations/r.c \
 					src/operations/rr.c \
+					src/movers/mr_cleaner.c \
 					src/movers/shared_ps_checker.c
 
 PS_OBJS = 			$(patsubst src/%.c, $(OBJDIR)%.o, $(PS_SRC))
@@ -72,7 +72,15 @@ objdir:
 					@mkdir -p $(OBJDIR)/operations
 
 $(OBJDIR)%.o:		src/%.c
-					@gcc $(CFLAGS) $(HEADERS) -c $< -o $@
+					gcc $(CFLAGS) $(HEADERS) -c $< -o $@
+
+re_push_swap:
+					@rm -rf $(PS_OBJS)
+					@make $(PUSH_SWAP)
+
+re_checker:
+					@rm -rf $(CHECKER_OBJS)
+					@make $(CHECKER)
 
 clean:
 					@rm -rf $(CHECKER_OBJS)
@@ -98,7 +106,6 @@ re:
 					@rm -rf $(PUSH_SWAP)
 					@make --directory=./libft fclean
 					@make all
-
 
 .PHONY:				all clean fclean re
 

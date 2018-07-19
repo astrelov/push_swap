@@ -6,7 +6,7 @@
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 14:40:33 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/17 10:45:40 by null             ###   ########.fr       */
+/*   Updated: 2018/07/19 12:44:42 by null             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ void	do_instruction(t_stack *a, t_stack *b, char *op)
 void	read_instructions(t_stack *a, t_stack *b)
 {
 	char	*op;
-	int 	fd = open("./output.txt", O_RDONLY);
 
-	while (ft_gnl(fd, &op))
+	while (ft_gnl(0, &op))
 	{
 		do_instruction(a, b, op);
-		free(op);
+		ft_strdel(&op);
 	}
-	free(op);
+	ft_strdel(&op);
 }
 
 int		check(char **nbrs, int nbrs_amount)
 {
 	int		*nbrs_arr;
+	int 	sorted;
 	t_stack	a;
 	t_stack	b;
 
@@ -63,7 +63,10 @@ int		check(char **nbrs, int nbrs_amount)
 	lst_create(&a, nbrs_arr, nbrs_amount);
 	read_instructions(&a, &b);
 	ft_memdel((void **)&nbrs_arr);
-	return (lst_is_sorted(&a, nbrs_amount));
+	sorted = lst_is_sorted(&a, nbrs_amount);
+	free_stack_nodes(&a);
+	free_stack_nodes(&b);
+	return (sorted);
 }
 
 int		main(int ac, char **av)

@@ -1,12 +1,12 @@
 #!/bin/bash
 
-make re
+#make re
 
 checker="./checker"
 push_swap="./push_swap"
 
-TESTSAMOUNT_500=10
-TESTSAMOUNT_100=100
+TESTSAMOUNT_500=0
+TESTSAMOUNT_100=1
 TESTSAMOUNT_5=0
 TESTSAMOUNT_3=0
 
@@ -82,7 +82,8 @@ if [[ "$TESTSAMOUNT_100" > 0 ]]; then
             NUMBERS+=" "
             let "count += 1"
         done
-#        echo $NUMBERS
+        echo $NUMBERS > NUMBERS
+        echo $NUMBERS
         $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS
 
          WORDS=$(cat output.txt | wc -w)
