@@ -5,8 +5,8 @@
 checker="./checker"
 push_swap="./push_swap"
 
-TESTSAMOUNT_500=0
-TESTSAMOUNT_100=1
+TESTSAMOUNT_500=10
+TESTSAMOUNT_100=10
 TESTSAMOUNT_5=0
 TESTSAMOUNT_3=0
 
@@ -38,7 +38,7 @@ if [[ "$TESTSAMOUNT_500" > 0 ]]; then
             let "count += 1"
         done
     #    echo $NUMBERS
-        $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS
+        $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS < output.txt
 
          WORDS=$(cat output.txt | wc -w)
          let "SUM += $WORDS"
@@ -82,9 +82,9 @@ if [[ "$TESTSAMOUNT_100" > 0 ]]; then
             NUMBERS+=" "
             let "count += 1"
         done
-        echo $NUMBERS > NUMBERS
-        echo $NUMBERS
-        $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS
+#        echo $NUMBERS > NUMBERS
+#        echo $NUMBERS
+        $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS < output.txt
 
          WORDS=$(cat output.txt | wc -w)
          let "SUM += $WORDS"
@@ -129,7 +129,7 @@ if [[ "$TESTSAMOUNT_5" > 0 ]]; then
             let "count += 1"
         done
 #        echo $NUMBERS
-        $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS
+        $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS < output.txt
 
          WORDS=$(cat output.txt | wc -w)
          let "SUM += $WORDS"
@@ -175,7 +175,7 @@ if [[ "$TESTSAMOUNT_3" > 0 ]]; then
             let "count += 1"
         done
     #    echo $NUMBERS
-        $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS
+        $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS < output.txt
 
          WORDS=$(cat output.txt | wc -w)
          let "SUM += $WORDS"
