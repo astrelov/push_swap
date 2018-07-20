@@ -126,7 +126,7 @@ objdir:
 	@mkdir -p $(OBJDIR)/ft_printf/src/helpers
 
 $(OBJDIR)%.o: %.c
-	gcc $(CFLAGS) $(HEADERS) -c $< -o $@
+	@gcc $(CFLAGS) $(HEADERS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJS)

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
-#include "../../../libft.h"
 
 unsigned int	parse_atoi(char **format)
 {

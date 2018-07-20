@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../../libft.h"
 
 void	inner_pf(char *format, va_list va, t_buff *buff)
 {

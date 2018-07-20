@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
-#include "../../../libft.h"
 
 int		parse_width(char **format, va_list va, t_pf *arg)
 {

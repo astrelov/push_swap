@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
-#include "../../../libft.h"
 
 t_buff	*handle_argument(va_list va, t_pf *arg)
 {

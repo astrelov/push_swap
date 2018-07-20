@@ -72,7 +72,7 @@ objdir:
 					@mkdir -p $(OBJDIR)/operations
 
 $(OBJDIR)%.o:		src/%.c
-					gcc $(CFLAGS) $(HEADERS) -c $< -o $@
+					@gcc $(CFLAGS) $(HEADERS) -c $< -o $@
 
 re_push_swap:
 					@rm -rf $(PS_OBJS)

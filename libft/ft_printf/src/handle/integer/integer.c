@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../../../includes/ft_printf.h"
-#include "../../../../libft.h"
 
 static char			*handle_intmax_t(t_pf *arg, intmax_t nbr)
 {
