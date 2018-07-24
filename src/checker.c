@@ -18,6 +18,8 @@ void	do_instruction(t_stack *a, t_stack *b, char *op)
 		sa(a);
 	else if (ft_strequ(op, "sb"))
 		sb(b);
+	else if (ft_strequ(op, "ss"))
+		ss(a, b);
 	else if (ft_strequ(op, "pa"))
 		pa(a, b);
 	else if (ft_strequ(op, "pb"))

@@ -35,3 +35,9 @@ void	sb(t_stack *stack)
 	lst_push_head(stack, node);
 	HEAD = HEAD->prev;
 }
+
+void	ss(t_stack *a, t_stack *b)
+{
+	sa(a);
+	sb(b);
+}

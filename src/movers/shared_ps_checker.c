@@ -6,11 +6,20 @@
 /*   By: astrelov <astrelov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 15:43:04 by astrelov          #+#    #+#             */
-/*   Updated: 2018/07/17 10:46:50 by null             ###   ########.fr       */
+/*   Updated: 2018/07/24 20:57:23 by null             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+int			check_for_duplicates(int *nbrs, int nbrs_amount)
+{
+	ft_d_bblsort(nbrs, (size_t)nbrs_amount);
+	while (--nbrs_amount > 0)
+		if (nbrs[nbrs_amount - 1] == nbrs[nbrs_amount])
+			return (INVALID);
+	return (VALID);
+}
 
 int			input_is_valid(char **av, int nbrs_amount)
 {
@@ -27,17 +36,14 @@ int			input_is_valid(char **av, int nbrs_amount)
 		equal = ft_strequ(nbr, *(av + i));
 		ft_memdel((void **)&nbr);
 		if (!equal)
-			return (INVALID);
-	}
-	ft_d_bblsort(nbrs, (size_t)nbrs_amount);
-	while (--i > 0)
-		if (nbrs[i - 1] == nbrs[i])
 		{
 			ft_memdel((void **)&nbrs);
 			return (INVALID);
 		}
+	}
+	i = check_for_duplicates(nbrs, nbrs_amount);
 	ft_memdel((void **)&nbrs);
-	return (VALID);
+	return (i);
 }
 
 int			*get_nbrs(char **av, int nbrs_amount)

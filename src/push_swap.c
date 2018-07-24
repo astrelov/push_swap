@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <printf.h>
 #include "../includes/push_swap.h"
 
 void	sort(t_stack *a, t_stack *b, int nbrs_amount)

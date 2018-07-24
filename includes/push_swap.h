@@ -118,6 +118,7 @@ int						lst_is_sorted(t_stack *stack, int all_nbrs_amount);
 void					op_handler(t_stack *a, t_stack *b, char *op);
 void					sa(t_stack *stack);
 void					sb(t_stack *stack);
+void					ss(t_stack *a, t_stack *b);
 void					pa(t_stack *a, t_stack *b);
 void					pb(t_stack *a, t_stack *b);
 void					ra(t_stack *stack);
