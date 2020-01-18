@@ -15,10 +15,9 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 ORANGE='\033[0;33m'
 
-if [[ "$TESTSAMOUNT_500" > 0 ]]; then
+if [[ $TESTSAMOUNT_500 -gt 0 ]]; then
 
     NUMBERS=""
-    count=1
     NBRSAMOUNT=500
     count2=1
     SUCCESSFUL=0
@@ -28,15 +27,9 @@ if [[ "$TESTSAMOUNT_500" > 0 ]]; then
 
     while [ "$count2" -le $TESTSAMOUNT_500 ]
     do
-        count=1
-        NUMBERS=""
+        NUMBERS=$(ruby -e "puts (1..500).to_a.shuffle.join(' ')")
+
         let "count2 += 1"
-        while [ "$count" -le $NBRSAMOUNT ]      # Generate ($MAXCOUNT) random integers.
-        do
-            NUMBERS+=$(od -N 3 -t uL -An /dev/random | tr -d " ")
-            NUMBERS+=" "
-            let "count += 1"
-        done
     #    echo $NUMBERS
         $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS < output.txt
 
@@ -60,10 +53,9 @@ if [[ "$TESTSAMOUNT_500" > 0 ]]; then
     fi
 fi
 
-if [[ "$TESTSAMOUNT_100" > 0 ]]; then
+if [[ $TESTSAMOUNT_100 -gt 0 ]]; then
 
     NUMBERS=""
-    count=1
     count2=1
     NBRSAMOUNT=100
     SUCCESSFUL=0
@@ -73,15 +65,9 @@ if [[ "$TESTSAMOUNT_100" > 0 ]]; then
 
     while [ "$count2" -le $TESTSAMOUNT_100 ]
     do
-        count=1
-        NUMBERS=""
         let "count2 += 1"
-        while [ "$count" -le $NBRSAMOUNT ]      # Generate ($MAXCOUNT) random integers.
-        do
-            NUMBERS+=$(od -N 3 -t uL -An /dev/random | tr -d " ")
-            NUMBERS+=" "
-            let "count += 1"
-        done
+
+        NUMBERS=$(ruby -e "puts (1..100).to_a.shuffle.join(' ')")
 #        echo $NUMBERS > NUMBERS
 #        echo $NUMBERS
         $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS < output.txt
@@ -106,10 +92,9 @@ if [[ "$TESTSAMOUNT_100" > 0 ]]; then
     fi
 fi
 
-if [[ "$TESTSAMOUNT_5" > 0 ]]; then
+if [[ $TESTSAMOUNT_5 -gt 0 ]]; then
 
     NUMBERS=""
-    count=1
     count2=1
     NBRSAMOUNT=5
     SUCCESSFUL=0
@@ -119,15 +104,10 @@ if [[ "$TESTSAMOUNT_5" > 0 ]]; then
 
     while [ "$count2" -le $TESTSAMOUNT_5 ]
     do
-        count=1
-        NUMBERS=""
         let "count2 += 1"
-        while [ "$count" -le $NBRSAMOUNT ]      # Generate ($MAXCOUNT) random integers.
-        do
-            NUMBERS+=$(od -N 3 -t uL -An /dev/random | tr -d " ")
-            NUMBERS+=" "
-            let "count += 1"
-        done
+
+        NUMBERS=$(ruby -e "puts (1..5).to_a.shuffle.join(' ')")
+
 #        echo $NUMBERS
         $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS < output.txt
 
@@ -152,10 +132,9 @@ if [[ "$TESTSAMOUNT_5" > 0 ]]; then
 fi
 
 
-if [[ "$TESTSAMOUNT_3" > 0 ]]; then
+if [[ $TESTSAMOUNT_3 -gt 0 ]]; then
 
     NUMBERS=""
-    count=1
     count2=1
     NBRSAMOUNT=3
     SUCCESSFUL=0
@@ -165,15 +144,10 @@ if [[ "$TESTSAMOUNT_3" > 0 ]]; then
 
     while [ "$count2" -le $TESTSAMOUNT_3 ]
     do
-        count=1
-        NUMBERS=""
         let "count2 += 1"
-        while [ "$count" -le $NBRSAMOUNT ]      # Generate ($MAXCOUNT) random integers.
-        do
-            NUMBERS+=$(od -N 3 -t uL -An /dev/random | tr -d " ")
-            NUMBERS+=" "
-            let "count += 1"
-        done
+
+        NUMBERS=$(ruby -e "puts (1..3).to_a.shuffle.join(' ')")
+
     #    echo $NUMBERS
         $push_swap $NUMBERS > ./output.txt &&  $checker $NUMBERS < output.txt
 
